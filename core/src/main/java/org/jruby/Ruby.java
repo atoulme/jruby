@@ -4532,7 +4532,7 @@ public final class Ruby {
 
     private final RubySymbol.SymbolTable symbolTable = new RubySymbol.SymbolTable(this);
 
-    private final List<EventHook> eventHooks = new Vector<EventHook>();
+    private final List<EventHook> eventHooks = Collections.synchronizedList(new ArrayList<EventHook>());
     private boolean hasEventHooks;  
     private boolean globalAbortOnExceptionEnabled = false;
     private boolean doNotReverseLookupEnabled = false;
